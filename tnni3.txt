@@ -1,0 +1,3 @@
+chrom,chr19
+start,55151767
+end,55157732
