@@ -12,3 +12,5 @@ alphagenome_API_key.txt
 AOU research use questions.docx
 py311_AG(installation) Updated 6-13.pdf
 /data/*.pkl
+data/clinvar.vcf.gz
+data/clinvar.vcf
