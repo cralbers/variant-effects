@@ -6,3 +6,10 @@ AOU reseach use questions.docx
 hg38.fa
 hg38.fa.fai
 data/alphagenome_API_key.txt
+.vscode
+.DS_Store
+*.ipynb_checkpoints
+alphagenome_API_key.txt
+AOU research use questions.docx
+py311_AG(installation) Updated 6-13.pdf
+/data/*.pkl
