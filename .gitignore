@@ -11,8 +11,9 @@ data/alphagenome_API_key.txt
 alphagenome_API_key.txt
 AOU research use questions.docx
 py311_AG(installation) Updated 6-13.pdf
-/data/*.pkl
 data/clinvar.vcf.gz
 data/clinvar.vcf
 data/clinvar.vcf.gz.tbi
 data/gencode.v46.annotation.gtf.gz.feather
+*.pkl
+data/lmna_variant_scores.csv
