@@ -1,0 +1,20 @@
+https://pcingola.github.io/SnpEff/examples/#example-3-non-coding-variants
+
+java -Xmx8g -jar snpEff.jar \
+    -v \
+    -motif \
+    GRCh38.115 \
+    /Users/coraalbers/Documents/BSGP/Lancaster_rotation/data/lmna_pathogenic.vcf \
+    > /Users/coraalbers/Documents/BSGP/Lancaster_rotation/data/lmna_pathogenic.ann.basic.vcf
+
+
+
+java -Xmx8g -jar snpEff.jar \
+    -v \
+    -motif \
+    -interval  /Users/coraalbers/Documents/BSGP/Lancaster_rotation/data/lmna_H1_H3K4Me1_chr1_156064711_156190081.bed \
+    GRCh38.115 \
+    /Users/coraalbers/Documents/BSGP/Lancaster_rotation/data/lmna_pathogenic.vcf \
+    > /Users/coraalbers/Documents/BSGP/Lancaster_rotation/data/lmna_pathogenic.ann.H1_H3K4Me1.vcf
+
+
