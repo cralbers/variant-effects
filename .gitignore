@@ -18,3 +18,4 @@ data/gencode.v46.annotation.gtf.gz.feather
 *.pkl
 data/lmna_variant_scores.csv
 data/lmna_pathogenic.csv
+/data
