@@ -24,3 +24,4 @@ data/lmna_pathogenic.csv
 total-rna-seq.npz
 pre_predictions.npz
 lmna_pathogenic_notLMNAgenelabeled.csv
+/outputs
