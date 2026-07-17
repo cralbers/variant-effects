@@ -19,7 +19,7 @@ from pysam import VariantFile
 from tqdm import tqdm
 import os
 
-if len(sys.argv) != 1:
+if len(sys.argv) != 3:
     print("Usage: python run_ism_regulatory_regions.py <bed_file_path> <output_folder>")
     print("")
     sys.exit(1)
@@ -40,6 +40,15 @@ HG38_SPLICE_END_PATH = '/users/PAS2905/coraalbers/ag/ag_data/gencode.v46.splice_
 
 HEART_UB = 'UBERON:0000948'
 GENE = 'LMNA'
+
+# # Flags to improve determinism.
+# os.environ['XLA_FLAGS'] = ' '.join([
+#     '--xla_gpu_deterministic_ops',
+#     '--xla_gpu_enable_scatter_determinism_expander=True',
+#     '--xla_gpu_enable_triton_gemm=False',
+# ])
+# # Increase GPU and CPU memory to reduce out of memory errors.
+# os.environ['XLA_PYTHON_CLIENT_MEM_FRACTION'] = '0.9'
 
 # gtf = pd.read_feather( 'https://storage.googleapis.com/alphagenome/reference/gencode/' 'hg38/gencode.v46.annotation.gtf.gz.feather' )
 

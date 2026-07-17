@@ -1,0 +1,33 @@
+Tue Jul 14 20:01:53 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.95.05              Driver Version: 580.95.05      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-PCIE-40GB          On  |   00000000:25:00.0 Off |                    0 |
+| N/A   35C    P0             38W /  250W |       0MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA A100-PCIE-40GB          On  |   00000000:81:00.0 Off |                    0 |
+| N/A   33C    P0             39W /  250W |       0MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+|   2  NVIDIA A100-PCIE-40GB          On  |   00000000:E2:00.0 Off |                    0 |
+| N/A   34C    P0             37W /  250W |       0MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+0,1
+/apps/spack/0.21/ascend/linux-rhel9-zen2/miniconda3/gcc/11.4.1/24.1.2-py310-bf5mmfg/lib:/apps/spack/0.21/ascend/linux-rhel9-zen2/cuda/gcc/11.4.1/12.9.1-iwtk5qq/lib64:/apps/spack/0.21/ascend/linux-rhel9-zen2/node-js/gcc/11.4.1/22.12.0-bu73mcb/lib
+[CudaDevice(id=0), CudaDevice(id=1)]
+Usage: python run_ism_regulatory_regions.py <bed_file_path> <output_folder>
+
