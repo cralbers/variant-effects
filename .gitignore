@@ -20,8 +20,6 @@ data/lmna_variant_scores.csv
 data/lmna_pathogenic.csv
 /data
 .env
-/figs
-total-rna-seq.npz
-pre_predictions.npz
-lmna_pathogenic_notLMNAgenelabeled.csv
-/outputs
+osc/figs
+osc/outputs
+osc/logs
