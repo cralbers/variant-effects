@@ -20,6 +20,6 @@ data/lmna_variant_scores.csv
 data/lmna_pathogenic.csv
 /data
 .env
-osc/figs
+
 osc/outputs
 osc/logs
