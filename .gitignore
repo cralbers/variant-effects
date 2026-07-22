@@ -20,6 +20,9 @@ data/lmna_variant_scores.csv
 data/lmna_pathogenic.csv
 /data
 .env
+
+osc/outputs
+osc/logs
 aou_nbs/01.4_How_to_work_with_VAT_Hail.ipynb
 aou_nbs/Setting_Env_Variables_p2.R
 aou_nbs/Setting_Env_Variables_p2.py
