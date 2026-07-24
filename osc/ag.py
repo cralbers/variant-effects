@@ -23,10 +23,10 @@ model = dna_model.create_from_huggingface(
     'all_folds', 
     organism_settings={ 
         dna_model.Organism.HOMO_SAPIENS: dna_model.OrganismSettings( 
-            fasta_path='hg38.fa', 
-            gtf_feather_path='ag_data/gencode.v46.annotation.gtf.gz.feather', 
-            splice_site_starts_feather_path='ag_data/gencode.v46.splice_sites_starts.feather', 
-            splice_site_ends_feather_path='ag_data/gencode.v46.splice_sites_ends.feather', 
+            fasta_path='/users/PAS2905/coraalbers/ag/hg38.fa', 
+            gtf_feather_path='/users/PAS2905/coraalbers/ag/ag_data/gencode.v46.annotation.gtf.gz.feather', 
+            splice_site_starts_feather_path='/users/PAS2905/coraalbers/ag/ag_data/gencode.v46.splice_sites_starts.feather', 
+            splice_site_ends_feather_path='/users/PAS2905/coraalbers/ag/ag_data/gencode.v46.splice_sites_ends.feather', 
         ), dna_model.Organism.MUS_MUSCULUS: dna_model.OrganismSettings() } )
 
 
@@ -51,7 +51,7 @@ variant_scores = model.score_ism_variants(
     organism=dna_client.Organism.HOMO_SAPIENS, 
 )
 
-variant_scores.to_pickle(f"variant_scores_region{region_num}.pkl")
+# variant_scores.to_pickle(f"variant_scores_region{region_num}.pkl")
 
 def extract_splice_scores_fixed(adata): 
     var = adata.var 

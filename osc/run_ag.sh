@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --account=pas2905
 #SBATCH --partition=nextgen
-#SBATCH --job-name=lmna_reg1
+#SBATCH --job-name=lmna_test
 #SBATCH --mem=64gb
 #SBATCH --time=40:00:00
 #SBATCH --mail-type=END,FAIL
@@ -24,4 +24,4 @@ echo $LD_LIBRARY_PATH
 python -c "import jax; print(jax.devices())"
 
 
-python ag.py chr1 156104711 156114711 1
+python ag.py chr1 156104711 156104714 1
