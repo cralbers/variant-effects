@@ -4,8 +4,8 @@
 #SBATCH --job-name=ism_reg_regions
 #SBATCH --time=40:00:00
 #SBATCH --mail-type=END,FAIL
-#SBATCH --output=R-%x.%j.out
-#SBATCH --error=R-%x.%j.err
+#SBATCH --output=logs/R-%x.%j.out
+#SBATCH --error=logs/R-%x.%j.err
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=10
