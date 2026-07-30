@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --account=pas2905
 #SBATCH --partition=nextgen
-#SBATCH --job-name=ism_reg_regions
+#SBATCH --job-name=ism_reg_regions_post
 #SBATCH --time=40:00:00
 #SBATCH --mail-type=END,FAIL
 #SBATCH --output=logs/R-%x.%j.out
@@ -27,4 +27,4 @@ python -c "import jax; print(jax.devices())"
 export XLA_PYTHON_CLIENT_MEM_FRACTION=0.9
 export XLA_FLAGS='--xla_gpu_deterministic_ops --xla_gpu_enable_scatter_determinism_expander=True --xla_gpu_enable_triton_gemm=False'
 
-python run_ism_regulatory_regions.py 'outputs/predicted_reg_regions_post_combinedtracks.bed' 'outputs/post_var_scores'
+python run_ism_regulatory_regions.py 'data_sync/predicted_ccre_like_regions_post_LV_128res.bed' 'outputs/post_var_scores'

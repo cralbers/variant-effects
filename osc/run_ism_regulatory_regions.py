@@ -39,6 +39,7 @@ HG38_SPLICE_START_PATH = '/users/PAS2905/coraalbers/ag/ag_data/gencode.v46.splic
 HG38_SPLICE_END_PATH = '/users/PAS2905/coraalbers/ag/ag_data/gencode.v46.splice_sites_ends.feather'
 
 HEART_UB = 'UBERON:0000948'
+LV_UB = 'UBERON:0002084'
 GENE = 'LMNA'
 
 # # Flags to improve determinism.
@@ -137,11 +138,14 @@ for i in range(len(bed_intervals)):
         variant_scorers=scorers, 
         organism=dna_client.Organism.HOMO_SAPIENS, 
     )
-
+    
+    df = variant_scorers.tidy_scores(variant_scores)
+    df = df[df['ontology_curie'] == LV_UB]
+    
     print(f'number of variants analyzed: {len(variant_scores)}')
     print(f'number of scorers used per variant: {len(variant_scores[0])}')
-    with open(f"{OUTPUT_FOLDER}/var_scores_{ism_interval.name}.pkl", "wb") as f:
-        pickle.dump(variant_scores, f)
+    df.to_csv(f"{OUTPUT_FOLDER}/var_scores_{ism_interval.name}.csv")
+        
 
 
 
