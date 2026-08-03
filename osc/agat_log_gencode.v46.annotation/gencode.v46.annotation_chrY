@@ -1,0 +1,258 @@
+                            08/03/2026 at 12h20m46s                             
+
+                    ------ Parsing done in 3 seconds ------                     
+
+
+                           ------ Start checks ------                           
+---------------------------- Check1: feature types -----------------------------
+----------------------------------- ontology -----------------------------------
+Check1 - All feature types in agreement with the Ontology.
+------------------------------------- agat -------------------------------------
+Check1 - AGAT can deal with all the encountered feature types (3rd column)
+-------------------------- Check1: done in 0 seconds ---------------------------
+
+------------------------------ Check2: duplicates ------------------------------
+Check2 - Nothing to be done
+-------------------------- Check2: done in 0 seconds ---------------------------
+
+-------------------------- Check3: sequential bucket ---------------------------
+Check3 - Nothing to be done
+-------------------------- Check3: done in 0 seconds ---------------------------
+
+--------------------------- Check4: l2 linked to l3 ----------------------------
+No problem found
+-------------------------- Check4: done in 0 seconds ---------------------------
+
+--------------------------- Check5: l1 linked to l2 ----------------------------
+No problem found
+-------------------------- Check5: done in 0 seconds ---------------------------
+
+--------------------------- Check6: remove orphan l1 ---------------------------
+Check6 - We remove only those not supposed to be orphan
+None found
+-------------------------- Check6: done in 0 seconds ---------------------------
+
+------------------------- Check7: all level3 locations -------------------------
+-------------------------- Check7: done in 0 seconds ---------------------------
+
+------------------------------ Check8: check cds -------------------------------
+189 CDS extended to include the stop_codon
+-------------------------- Check8: done in 0 seconds ---------------------------
+
+----------------------------- Check9: check exons ------------------------------
+No exons created
+No exons locations modified
+No supernumerary exons removed
+No level2 locations modified
+-------------------------- Check9: done in 0 seconds ---------------------------
+
+----------------------------- Check10: check utrs ------------------------------
+Modify the UTR: agat-utr-201 location for enst00000155093.8! From 2979991 2982506 to 2979994 2982506
+Modify the UTR: agat-utr-236 location for enst00000215473.7! From 5100738 5101437 to 5100741 5101437
+Modify the UTR: agat-utr-194 location for enst00000250784.13! From 2866892 2867268 to 2866895 2867268
+Modify the UTR: agat-utr-363 location for enst00000250823.5! From 14056857 14056958 to 14056860 14056958
+Modify the UTR: agat-utr-361 location for enst00000250825.5! From 13985772 13985873 to 13985772 13985870
+Modify the UTR: agat-utr-501 location for enst00000250831.6! From 22417601 22417881 to 22417604 22417881
+Modify the UTR: agat-utr-389 location for enst00000250838.6! From 18027738 18027746 to 18027741 18027746
+Modify the UTR: agat-utr-359 location for enst00000284856.4! From 13705257 13706024 to 13705260 13706024
+Modify the UTR: agat-utr-282 location for enst00000287721.13! From 9360403 9360593 to 9360406 9360593
+Modify the UTR: agat-utr-505 location for enst00000303728.5! From 22514068 22514637 to 22514071 22514637
+Modify the UTR: agat-utr-495 location for enst00000303766.12! From 22168542 22168822 to 22168542 22168819
+Modify the UTR: agat-utr-487 location for enst00000303804.5! From 22071756 22072325 to 22071756 22072322
+Modify the UTR: agat-utr-406 location for enst00000304790.3! From 18771814 18771937 to 18771814 18771934
+Modify the UTR: agat-utr-604 location for enst00000306609.5! From 25624525 25624902 to 25624528 25624902
+Modify the UTR: agat-utr-543 location for enst00000306882.4! From 24045229 24045606 to 24045229 24045603
+Modify the UTR: agat-utr-398 location for enst00000307393.3! From 18548469 18548592 to 18548472 18548592
+Modify the UTR: agat-utr-391 location for enst00000309834.8! From 18588632 18588963 to 18588635 18588963
+Modify the UTR: agat-utr-563 location for enst00000315357.9! From 24768899 24768936 to 24768899 24768933
+Modify the UTR: agat-utr-409 location for enst00000317961.9! From 19703865 19705997 to 19703865 19705994
+Modify the UTR: agat-utr-244 location for enst00000320701.9! From 6248823 6249018 to 6248826 6249018
+Modify the UTR: agat-utr-212 location for enst00000321217.5! From 3579800 3580041 to 3579803 3580041
+Modify the UTR: agat-utr-352 location for enst00000329134.9! From 13323034 13323116 to 13323034 13323113
+Modify the UTR: agat-utr-520 location for enst00000331070.8! From 22998266 22998374 to 22998269 22998374
+Modify the UTR: agat-utr-336 location for enst00000331397.8! From 13248379 13249858 to 13248379 13249855
+Modify the UTR: agat-utr-218 location for enst00000333703.8! From 5104359 5105444 to 5104362 5105444
+Modify the UTR: agat-utr-318 location for enst00000336079.8! From 12918120 12920478 to 12918123 12920478
+Modify the UTR: agat-utr-393 location for enst00000338876.8! From 18550802 18550869 to 18550805 18550869
+Modify the UTR: agat-utr-310 location for enst00000338981.7! From 12859414 12860839 to 12859417 12860839
+Modify the UTR: agat-utr-384 location for enst00000339174.9! From 14841260 14843647 to 14841263 14843647
+Modify the UTR: agat-utr-402 location for enst00000344884.4! From 18731440 18731771 to 18731440 18731768
+Modify the UTR: agat-utr-257 location for enst00000346432.3! From 7091490 7091683 to 7091493 7091683
+Modify the UTR: agat-utr-263 location for enst00000355162.6! From 7091490 7091683 to 7091493 7091683
+Modify the UTR: agat-utr-373 location for enst00000355905.6! From 14841260 14843726 to 14841263 14843726
+Modify the UTR: agat-utr-470 location for enst00000358944.8! From 21910101 21910223 to 21910101 21910220
+Modify the UTR: agat-utr-314 location for enst00000360160.8! From 12918120 12918539 to 12918123 12918539
+Modify the UTR: agat-utr-444 location for enst00000361046.4! From 21542721 21542843 to 21542724 21542843
+Remove 1 supernumerary UTRs for enst00000361335.1
+Modify the UTR: agat-utr-421 location for enst00000361365.7! From 20592344 20593154 to 20592347 20593154
+Remove 1 supernumerary UTRs for enst00000361567.2
+Remove 1 supernumerary UTRs for enst00000361739.1
+Remove 1 supernumerary UTRs for enst00000361851.1
+Remove 1 supernumerary UTRs for enst00000361899.2
+Modify the UTR: agat-utr-606 location for enst00000361963.3! From 25624063 25624338 to 25624066 25624338
+Modify the UTR: agat-utr-238 location for enst00000362095.9! From 5104359 5104700 to 5104362 5104700
+Modify the UTR: agat-utr-350 location for enst00000362096.8! From 13297441 13297705 to 13297441 13297702
+Modify the UTR: agat-utr-594 location for enst00000382287.5! From 25037992 25038100 to 25037992 25038097
+Modify the UTR: agat-utr-586 location for enst00000382296.4! From 24901173 24901210 to 24901176 24901210
+Modify the UTR: agat-utr-572 location for enst00000382314.6! From 24901173 24901210 to 24901176 24901210
+Modify the UTR: agat-utr-560 location for enst00000382365.7! From 24768899 24768936 to 24768899 24768933
+Modify the UTR: agat-utr-555 location for enst00000382392.5! From 24632008 24632116 to 24632011 24632116
+Modify the UTR: agat-utr-544 location for enst00000382407.1! From 24045793 24046068 to 24045793 24046065
+Modify the UTR: agat-utr-581 location for enst00000382432.9! From 24901173 24901210 to 24901176 24901210
+Modify the UTR: agat-utr-540 location for enst00000382433.4! From 23285499 23285536 to 23285502 23285536
+Modify the UTR: agat-utr-537 location for enst00000382440.6! From 23285499 23285536 to 23285502 23285536
+Modify the UTR: agat-utr-534 location for enst00000382449.5! From 23285499 23285536 to 23285502 23285536
+Remove 1 supernumerary UTRs for enst00000382585.2
+Modify the UTR: agat-utr-431 location for enst00000382639.7! From 21519180 21519302 to 21519183 21519302
+Modify the UTR: agat-utr-454 location for enst00000382653.6! From 21886560 21886682 to 21886560 21886679
+Modify the UTR: agat-utr-480 location for enst00000382658.5! From 21903620 21903898 to 21903620 21903895
+Modify the UTR: agat-utr-483 location for enst00000382659.7! From 21903622 21903898 to 21903622 21903895
+Modify the UTR: agat-utr-464 location for enst00000382680.5! From 21880076 21880356 to 21880076 21880353
+Modify the UTR: agat-utr-441 location for enst00000382707.6! From 21549046 21549326 to 21549049 21549326
+Modify the UTR: agat-utr-423 location for enst00000382772.3! From 20592344 20592630 to 20592347 20592630
+Modify the UTR: agat-utr-415 location for enst00000382806.6! From 19705420 19705997 to 19705420 19705994
+Modify the UTR: agat-utr-404 location for enst00000382852.1! From 18768921 18769600 to 18768921 18769597
+Modify the UTR: agat-utr-400 location for enst00000382856.2! From 18550802 18551465 to 18550805 18551465
+Modify the UTR: agat-utr-386 location for enst00000382867.4! From 17878260 17878269 to 17878260 17878266
+Modify the UTR: agat-utr-376 location for enst00000382868.5! From 14841260 14843726 to 14841263 14843726
+Modify the UTR: agat-utr-370 location for enst00000382872.5! From 14841260 14845650 to 14841263 14845650
+Modify the UTR: agat-utr-357 location for enst00000382893.2! From 13396302 13396906 to 13396302 13396903
+Modify the UTR: agat-utr-340 location for enst00000382896.9! From 13249142 13249788 to 13249142 13249785
+Modify the UTR: agat-utr-283 location for enst00000383000.1! From 9359656 9359688 to 9359659 9359688
+Modify the UTR: agat-utr-279 location for enst00000383005.8! From 9359656 9359688 to 9359659 9359688
+Modify the UTR: agat-utr-276 location for enst00000383008.1! From 9339341 9339373 to 9339344 9339373
+Modify the UTR: agat-utr-428 location for enst00000383020.7! From 21525506 21525786 to 21525509 21525786
+Modify the UTR: agat-utr-270 location for enst00000383032.6! From 7091490 7091683 to 7091493 7091683
+Remove 1 supernumerary UTRs for enst00000383036.1
+Modify the UTR: agat-utr-245 location for enst00000383042.1! From 6248076 6248108 to 6248079 6248108
+Modify the UTR: agat-utr-198 location for enst00000383052.5! From 2979991 2982506 to 2979994 2982506
+Modify the UTR: agat-utr-191 location for enst00000383070.2! From 2786855 2786991 to 2786855 2786988
+Modify the UTR: agat-utr-240 location for enst00000400457.3! From 5737940 5742224 to 5737943 5742224
+Modify the UTR: agat-utr-525 location for enst00000405239.6! From 23135175 23135212 to 23135175 23135209
+Modify the UTR: agat-utr-385 location for enst00000413217.1! From 14733535 14733549 to 14733538 14733549
+Modify the UTR: agat-utr-569 location for enst00000415508.6! From 24901173 24901210 to 24901176 24901210
+Modify the UTR: agat-utr-467 location for enst00000418956.2! From 21880308 21880356 to 21880308 21880353
+Modify the UTR: agat-utr-291 location for enst00000423647.6! From 9468814 9468846 to 9468817 9468846
+Modify the UTR: agat-utr-288 location for enst00000424594.1! From 9400280 9400312 to 9400283 9400312
+Modify the UTR: agat-utr-531 location for enst00000426000.6! From 23135175 23135212 to 23135175 23135209
+Modify the UTR: agat-utr-275 location for enst00000426950.6! From 9340088 9340278 to 9340091 9340278
+Modify the UTR: agat-utr-298 location for enst00000428845.6! From 9530486 9530676 to 9530489 9530676
+Modify the UTR: agat-utr-242 location for enst00000429039.5! From 6248823 6248892 to 6248826 6248892
+Modify the UTR: agat-utr-584 location for enst00000440066.6! From 24901173 24901210 to 24901176 24901210
+Modify the UTR: agat-utr-296 location for enst00000440215.5! From 9489891 9490081 to 9489894 9490081
+Remove 1 supernumerary UTRs for enst00000440483.5
+Modify the UTR: agat-utr-299 location for enst00000444056.1! From 9529739 9529771 to 9529742 9529771
+Modify the UTR: agat-utr-566 location for enst00000446723.4! From 24768899 24768936 to 24768899 24768933
+Modify the UTR: agat-utr-209 location for enst00000449237.4! From 2979991 2981146 to 2979994 2981146
+Modify the UTR: agat-utr-575 location for enst00000449750.7! From 24901173 24901210 to 24901176 24901210
+Modify the UTR: agat-utr-294 location for enst00000451548.6! From 9469559 9469749 to 9469562 9469749
+Modify the UTR: agat-utr-311 location for enst00000453031.1! From 12859414 12859612 to 12859417 12859612
+Modify the UTR: agat-utr-498 location for enst00000454978.2! From 22168542 22168822 to 22168542 22168819
+Modify the UTR: agat-utr-286 location for enst00000457222.6! From 9401027 9401217 to 9401030 9401217
+Modify the UTR: agat-utr-491 location for enst00000472391.1! From 22073644 22073730 to 22073644 22073727
+Modify the UTR: agat-utr-509 location for enst00000477123.1! From 22512666 22512752 to 22512669 22512752
+Modify the UTR: agat-utr-353 location for enst00000478900.5! From 13369256 13369320 to 13369256 13369317
+Remove 1 supernumerary UTRs for enst00000537580.6
+Remove 1 supernumerary UTRs for enst00000538878.6
+Remove 1 supernumerary UTRs for enst00000540140.6
+Modify the UTR: agat-utr-528 location for enst00000540248.5! From 23135175 23135212 to 23135175 23135209
+Modify the UTR: agat-utr-412 location for enst00000541639.5! From 19705417 19705997 to 19705417 19705994
+Modify the UTR: agat-utr-338 location for enst00000545955.6! From 13248385 13249858 to 13248385 13249855
+Modify the UTR: agat-utr-214 location for enst00000559055.2! From 3579800 3580041 to 3579803 3580041
+Remove 1 supernumerary UTRs for enst00000612274.5
+Remove 1 supernumerary UTRs for enst00000615850.1
+Remove 1 supernumerary UTRs for enst00000617789.5
+Remove 1 supernumerary UTRs for enst00000618474.5
+Remove 1 supernumerary UTRs for enst00000618574.1
+Modify the UTR: agat-utr-228 location for enst00000622698.4! From 5104359 5105459 to 5104362 5105459
+Remove 1 supernumerary UTRs for enst00000624098.3
+Modify the UTR: agat-utr-204 location for enst00000625061.3! From 2979991 2980347 to 2979994 2980347
+Modify the UTR: agat-utr-588 location for enst00000634662.1! From 24901173 24901210 to 24901176 24901210
+Modify the UTR: agat-utr-273 location for enst00000640033.2! From 9340088 9340157 to 9340091 9340157
+Modify the UTR: agat-utr-366 location for enst00000643089.1! From 14841260 14845639 to 14841263 14845639
+Modify the UTR: agat-utr-306 location for enst00000651177.1! From 12859414 12860802 to 12859417 12860802
+Modify the UTR: agat-utr-250 location for enst00000651267.2! From 6865918 6866075 to 6865918 6866072
+Modify the UTR: agat-utr-271 location for enst00000651523.1! From 7101864 7101970 to 7101867 7101970
+Modify the UTR: agat-utr-322 location for enst00000682112.1! From 13334218 13334222 to 13334218 13334219
+Modify the UTR: agat-utr-578 location for enst00000682740.1! From 24901173 24901210 to 24901176 24901210
+Remove 1 supernumerary UTRs for enst00000682913.1
+Modify the UTR: agat-utr-381 location for enst00000684976.1! From 14841260 14845654 to 14841263 14845654
+Modify the UTR: agat-utr-231 location for enst00000698851.1! From 5737940 5742224 to 5737943 5742224
+Modify the UTR: agat-utr-26 location for enst00000711115.1! From 333933 334369 to 333933 334366
+Modify the UTR: agat-utr-74 location for enst00000711129.1! From 1309477 1309935 to 1309480 1309935
+Modify the UTR: agat-utr-81 location for enst00000711131.1! From 1309477 1309924 to 1309480 1309924
+Modify the UTR: agat-utr-132 location for enst00000711132.1! From 1601592 1602520 to 1601595 1602520
+Modify the UTR: agat-utr-59 location for enst00000711135.1! From 1282881 1283042 to 1282884 1283042
+Modify the UTR: agat-utr-55 location for enst00000711137.1! From 1309477 1310381 to 1309480 1310381
+Modify the UTR: agat-utr-51 location for enst00000711138.1! From 1309477 1309934 to 1309480 1309934
+Modify the UTR: agat-utr-37 location for enst00000711141.1! From 658827 659411 to 658830 659411
+Modify the UTR: agat-utr-35 location for enst00000711142.1! From 644634 651584 to 644637 651584
+Modify the UTR: agat-utr-33 location for enst00000711143.1! From 658827 659411 to 658830 659411
+Modify the UTR: agat-utr-30 location for enst00000711145.1! From 644634 646823 to 644637 646823
+Modify the UTR: agat-utr-189 location for enst00000711151.1! From 2737913 2738256 to 2737916 2738256
+Modify the UTR: agat-utr-186 location for enst00000711155.1! From 2733362 2733374 to 2733365 2733374
+Modify the UTR: agat-utr-185 location for enst00000711156.1! From 2691949 2692253 to 2691952 2692253
+Modify the UTR: agat-utr-184 location for enst00000711158.1! From 2740802 2741290 to 2740805 2741290
+Modify the UTR: agat-utr-182 location for enst00000711159.1! From 2733362 2733672 to 2733365 2733672
+Modify the UTR: agat-utr-180 location for enst00000711160.1! From 2740802 2741309 to 2740805 2741309
+Modify the UTR: agat-utr-178 location for enst00000711163.1! From 2733362 2733667 to 2733365 2733667
+Modify the UTR: agat-utr-176 location for enst00000711164.1! From 2740802 2741101 to 2740805 2741101
+Modify the UTR: agat-utr-172 location for enst00000711165.1! From 2733362 2733374 to 2733365 2733374
+Modify the UTR: agat-utr-167 location for enst00000711169.1! From 2488186 2488637 to 2488186 2488634
+Modify the UTR: agat-utr-164 location for enst00000711171.1! From 2486435 2488637 to 2486435 2488634
+Modify the UTR: agat-utr-161 location for enst00000711172.1! From 2486414 2488637 to 2486414 2488634
+Modify the UTR: agat-utr-158 location for enst00000711173.1! From 2486414 2488637 to 2486414 2488634
+Modify the UTR: agat-utr-15 location for enst00000711179.1! From 299333 303356 to 299336 303356
+Modify the UTR: agat-utr-4 location for enst00000711184.1! From 299333 303353 to 299336 303353
+Modify the UTR: agat-utr-139 location for enst00000711185.1! From 1599619 1600303 to 1599622 1600303
+Modify the UTR: agat-utr-135 location for enst00000711186.1! From 1600141 1600207 to 1600144 1600207
+Modify the UTR: agat-utr-122 location for enst00000711192.1! From 1403139 1403271 to 1403139 1403268
+Modify the UTR: agat-utr-124 location for enst00000711196.1! From 1403141 1403271 to 1403141 1403268
+Modify the UTR: agat-utr-119 location for enst00000711197.1! From 1403139 1403271 to 1403139 1403268
+Modify the UTR: agat-utr-148 location for enst00000711204.1! From 2219506 2221043 to 2219506 2221040
+Modify the UTR: agat-utr-146 location for enst00000711206.1! From 1643012 1643081 to 1643015 1643081
+Modify the UTR: agat-utr-145 location for enst00000711208.1! From 1643012 1643081 to 1643015 1643081
+Modify the UTR: agat-utr-143 location for enst00000711209.1! From 1643012 1643027 to 1643015 1643027
+Modify the UTR: agat-utr-141 location for enst00000711210.1! From 1643012 1643081 to 1643015 1643081
+Modify the UTR: agat-utr-117 location for enst00000711214.1! From 1386152 1386604 to 1386152 1386601
+Modify the UTR: agat-utr-126 location for enst00000711216.1! From 1462581 1465481 to 1462581 1465478
+Modify the UTR: agat-utr-110 location for enst00000711217.1! From 1382463 1382689 to 1382466 1382689
+Modify the UTR: agat-utr-113 location for enst00000711219.1! From 1382463 1382689 to 1382466 1382689
+Modify the UTR: agat-utr-85 location for enst00000711220.1! From 1305733 1305941 to 1305736 1305941
+Modify the UTR: agat-utr-89 location for enst00000711221.1! From 1309866 1309922 to 1309869 1309922
+Modify the UTR: agat-utr-93 location for enst00000711223.1! From 1309587 1309934 to 1309590 1309934
+Modify the UTR: agat-utr-97 location for enst00000711224.1! From 1305499 1305527 to 1305502 1305527
+Modify the UTR: agat-utr-102 location for enst00000711225.1! From 1303968 1304019 to 1303971 1304019
+Modify the UTR: agat-utr-106 location for enst00000711226.1! From 1305499 1305527 to 1305502 1305527
+Modify the UTR: agat-utr-24 location for enst00000711233.1! From 304759 305076 to 304759 305073
+Modify the UTR: agat-utr-39 location for enst00000711254.1! From 1190490 1190899 to 1190490 1190896
+Modify the UTR: agat-utr-41 location for enst00000711255.1! From 1198801 1198929 to 1198801 1198926
+Modify the UTR: agat-utr-609 location for enst00000711260.1! From 57128469 57130289 to 57128472 57130289
+Modify the UTR: agat-utr-612 location for enst00000711262.1! From 57084663 57084769 to 57084666 57084769
+Modify the UTR: agat-utr-619 location for enst00000711264.1! From 57128657 57130289 to 57128660 57130289
+Modify the UTR: agat-utr-622 location for enst00000711265.1! From 57128469 57128509 to 57128472 57128509
+Remove 1 supernumerary UTRs for enst00000711272.1
+Modify the UTR: agat-utr-624 location for enst00000711286.1! From 57196927 57197337 to 57196930 57197337
+Modify the UTR: agat-utr-626 location for enst00000711287.1! From 57196370 57197337 to 57196373 57197337
+No UTRs created
+168 UTRs locations modified that were wrong
+19 UTRs removed that were supernumerary
+-------------------------- Check10: done in 0 seconds --------------------------
+
+------------------------ Check11: all level2 locations -------------------------
+No problem found
+-------------------------- Check11: done in 0 seconds --------------------------
+
+------------------------ Check12: all level1 locations -------------------------
+No problem found
+-------------------------- Check12: done in 0 seconds --------------------------
+
+---------------- Check13: merge overlaping loci into same locus ----------------
+Check13 - skip check
+
+---------------------- Check14: remove identical isoforms ----------------------
+Check14 - Nothing to be done
+-------------------------- Check14: done in 0 seconds --------------------------
+                    ------ All check done in 0 seconds ------                   
+
+
