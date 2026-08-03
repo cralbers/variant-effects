@@ -18,16 +18,17 @@ import numpy as np
 from pysam import VariantFile
 from tqdm import tqdm
 import os
+import gc
 
 if len(sys.argv) != 3:
     print("Usage: python run_ism_regulatory_regions.py <bed_file_path> <output_folder>")
     print("")
     sys.exit(1)
 
-LMNA_START = 156_114_711
+LMNA_START = 156_082_572
 LMNA_END = 156_140_081
 gene_symbol = "LMNA"
-LMNA_INTERVAL = genome.Interval('chr1', 156_114_711, 156_140_081)
+LMNA_INTERVAL = genome.Interval('chr1', 156_082_572, 156_140_081)
 
 
 BASE_PATH = '/users/PAS2905/coraalbers/'
@@ -123,14 +124,20 @@ scorers = {k: v for k, v in scorers.items() if k not in scorers_drop}
 scorers = list(scorers.values())
 print('scorers used')
 print(*scorers, sep="\n")
-    
 
-for i in range(len(bed_intervals)):
-    
-    ism_interval = bed_intervals[i]
-    print(f'interval name: {ism_interval.name}')
+os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 
-    context = ism_interval.resize(dna_client.SEQUENCE_LENGTH_1MB)
+for interval_idx in range(len(bed_intervals)):
+    
+    ism_interval = bed_intervals[interval_idx]
+    out_path = f"{OUTPUT_FOLDER}/var_scores_{ism_interval.name}.parquet"
+    if os.path.exists(out_path):
+        print(f'skipping {ism_interval.name}: already exists at {out_path}')
+        continue
+
+    print(f'interval {interval_idx + 1}/{len(bed_intervals)}: {ism_interval.name}')
+
+    context = LMNA_INTERVAL.resize(dna_client.SEQUENCE_LENGTH_1MB)
 
     variant_scores = model.score_ism_variants( 
         interval=context, 
@@ -139,13 +146,30 @@ for i in range(len(bed_intervals)):
         organism=dna_client.Organism.HOMO_SAPIENS, 
     )
     
+    n_variants = len(variant_scores)
+    n_scorers = len(variant_scores[0]) if n_variants else 0
     df = variant_scorers.tidy_scores(variant_scores)
-    df = df[df['ontology_curie'] == LV_UB]
+    del variant_scores
+    gc.collect()
+
+    df = df[df['ontology_curie'] == LV_UB].copy()
+    gc.collect()
+
+    # tidy_scores stores Variant/Interval objects; parquet needs strings.
+    if 'variant_id' in df.columns:
+        df['variant_id'] = df['variant_id'].map(str)
+    if 'scored_interval' in df.columns:
+        df['scored_interval'] = df['scored_interval'].map(str)
     
-    print(f'number of variants analyzed: {len(variant_scores)}')
-    print(f'number of scorers used per variant: {len(variant_scores[0])}')
-    df.to_csv(f"{OUTPUT_FOLDER}/var_scores_{ism_interval.name}.csv")
-        
+    print(f'number of variants analyzed: {n_variants}')
+    print(f'number of scorers used per variant: {n_scorers}')
+    print(f'number of rows in df: {len(df)}')
+
+    df.to_parquet(out_path, compression="snappy")
+    print(f'saved to {out_path}')
+
+    del df
+    gc.collect()
 
 
 

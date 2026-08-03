@@ -9,6 +9,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=10
+#SBATCH --mem=128G
 #SBATCH --gpus-per-task=1   # or 2 if you really need two local GPUs
 
 
@@ -27,4 +28,4 @@ python -c "import jax; print(jax.devices())"
 export XLA_PYTHON_CLIENT_MEM_FRACTION=0.9
 export XLA_FLAGS='--xla_gpu_deterministic_ops --xla_gpu_enable_scatter_determinism_expander=True --xla_gpu_enable_triton_gemm=False'
 
-python run_ism_regulatory_regions.py 'data_sync/predicted_ccre_like_regions_post_LV_128res.bed' 'outputs/post_var_scores'
+python run_ism_regulatory_regions.py 'data_sync/predicted_ccre_like_regions_central_LV_128res.bed' 'outputs/ism_reg_var_scores'
