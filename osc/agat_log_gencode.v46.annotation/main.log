@@ -1,69 +1,0 @@
-                            08/03/2026 at 12h00m37s                             
-
-
- ------------------------------------------------------------------------------
-|   Another GFF Analysis Toolkit (AGAT) - Version: v1.7.0                      |
-|   https://github.com/NBISweden/AGAT                                          |
-|   National Bioinformatics Infrastructure Sweden (NBIS) - www.nbis.se         |
- ------------------------------------------------------------------------------
-=> Using standard /users/PAS2905/coraalbers/.conda/envs/py311/lib/perl5/site_perl/auto/share/dist/AGAT/agat_config.yaml config file
-Using standard /users/PAS2905/coraalbers/.conda/envs/py311/lib/perl5/site_perl/auto/share/dist/AGAT/feature_levels.yaml file
-We will work on attributes from all the level3 features
-We will work on attributes from CDS feature.
-tt attribute will be processed.
-
-                                        
-                                       
-                          ------ Start parsing ------                           
--------------------------- parse options and metadata --------------------------
-Accessing the feature_levels YAML file
-=> Attribute used to group features when no Parent/ID relationship exists (i.e common tag):
-	* locus_tag
-	* gene_id
-=> merge_loci option activated
-=> FASTA within the file will be thrown away!
-=> Machine information:
-	This script is being run by perl v5.32.1
-	Bioperl location being used: /users/PAS2905/coraalbers/.conda/envs/py311/lib/perl5/site_perl/Bio/
-	Operating system being used: linux 
-=> Accessing Ontology
-	No ontology accessible from the gff file header!
-	We use the SOFA ontology distributed with AGAT:
-		/users/PAS2905/coraalbers/.conda/envs/py311/lib/perl5/site_perl/auto/share/dist/AGAT/so.obo
-	Read ontology /users/PAS2905/coraalbers/.conda/envs/py311/lib/perl5/site_perl/auto/share/dist/AGAT/so.obo:
-		4 root terms, and 2596 total terms, and 1516 leaf terms
-	Filtering ontology:
-The feature type (3rd column) is constrained to be either a term from the Sequence Ontology or an SO accession number. The latter alternative is distinguished using the syntax SO:000000. In either case, it must be sequence_feature (SO:0000110) or an is_a child of it.
-We filter the ontology to apply this rule.		We found 1861 terms that are sequence_feature or is_a child of it.
---------------------- collecting general data information ----------------------
-Parsing file /users/PAS2905/coraalbers/ag/ag_data/gencode.v46.annotation.gtf
-Lines parsed: 122495Lines parsed: 300588Lines parsed: 465293Lines parsed: 607729Lines parsed: 786252Lines parsed: 932156Lines parsed: 1091635Lines parsed: 1248139Lines parsed: 1403719Lines parsed: 1558107Lines parsed: 1698481Lines parsed: 1856814Lines parsed: 2035246Lines parsed: 2182400Lines parsed: 2335284Lines parsed: 2486281Lines parsed: 2645179Lines parsed: 2799316Lines parsed: 2949380Lines parsed: 3125970Lines parsed: 3264786Lines parsed: 3431818=> Number of line in file: 3467161
-=> Number of comment lines: 5
-=> Number of empty lines: 0
-=> Fasta included: No
-=> Number of features lines: 3467156
-=> Number of feature lines with 1 fields (while 9 expected): 5
-=> Number of feature type (3rd column): 8
-	* Level1: 1 => gene
-	* level2: 1 => transcript
-	* level3: 6 => CDS Selenocysteine UTR exon start_codon stop_codon
-	* unknown: 0 => 
-=> Version of the GFF parser selected by AGAT: 2
-
--------- Start of in-depth analysis (file by chunck 1 CPU - 20 chuncks) --------
-
-Parsing (done in 1190 seconds )
----------------------------- Merging parallel tasks ----------------------------
-
-Merging (done in 113 seconds )
-................................................................................
-.                           Total time: 1326 seconds                           .
-.                          Total memory: 18383.85 Mo                           .
-................................................................................
-                            ------ END parsing ------                           
-
---------------------------- Job done in 1337 seconds ---------------------------
-command : /users/PAS2905/coraalbers/.conda/envs/py311/bin/agat_sp_extract_attributes.pl --gff /users/PAS2905/coraalbers/ag/ag_data/gencode.v46.annotation.gtf -att locus_tag,product,name -p level3,CDS -o /users/PAS2905/coraalbers/ag/ag_data/gencode.v46.annotation.cds.gtf
-date : 08/03/2026 at 12h00m37s
-Job done! Bye Bye!
-
