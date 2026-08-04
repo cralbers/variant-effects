@@ -19,6 +19,7 @@ from pysam import VariantFile
 from tqdm import tqdm
 import os
 import gc
+import math
 
 if len(sys.argv) != 3:
     print("Usage: python run_ism_regulatory_regions.py <bed_file_path> <output_folder>")
@@ -116,6 +117,41 @@ def load_bed_intervals(bed_path, plot_interval=None):
     return intervals, df
 
 
+def tidy_scores_lv_chunked(variant_scores, ontology_curie, chunk_size=256):
+    """Tidy ISM scores in chunks, keeping only tracks matching ontology_curie."""
+    chunks = []
+    n = len(variant_scores)
+    for start in range(0, n, chunk_size):
+        end = min(start + chunk_size, n)
+        frames = []
+        for i in range(start, end):
+            for adata in variant_scores[i]:
+                if adata is None or math.prod(adata.X.shape) == 0:
+                    continue
+                if 'ontology_curie' in adata.var.columns:
+                    mask = adata.var['ontology_curie'] == ontology_curie
+                    if not mask.any():
+                        continue
+                    adata = adata[:, mask]
+                frame = variant_scorers.tidy_anndata(adata)
+                if frame.empty:
+                    continue
+                if 'ontology_curie' in frame.columns:
+                    frame = frame[frame['ontology_curie'] == ontology_curie]
+                if not frame.empty:
+                    frames.append(frame)
+            variant_scores[i] = None  # free AnnDatas early
+        if frames:
+            chunks.append(pd.concat(frames, axis=0, ignore_index=True))
+        del frames
+        gc.collect()
+    if not chunks:
+        return pd.DataFrame()
+    df = pd.concat(chunks, axis=0, ignore_index=True)
+    last = ['raw_score'] + (['quantile_score'] if 'quantile_score' in df.columns else [])
+    return df[[c for c in df.columns if c not in last] + last]
+
+
 bed_intervals, bed_df = load_bed_intervals(BED_FILE)
 
 scorers = dict(variant_scorers.RECOMMENDED_VARIANT_SCORERS)
@@ -148,11 +184,8 @@ for interval_idx in range(len(bed_intervals)):
     
     n_variants = len(variant_scores)
     n_scorers = len(variant_scores[0]) if n_variants else 0
-    df = variant_scorers.tidy_scores(variant_scores)
+    df = tidy_scores_lv_chunked(variant_scores, ontology_curie=LV_UB, chunk_size=256)
     del variant_scores
-    gc.collect()
-
-    df = df[df['ontology_curie'] == LV_UB].copy()
     gc.collect()
 
     # tidy_scores stores Variant/Interval objects; parquet needs strings.
