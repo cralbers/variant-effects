@@ -23,3 +23,9 @@ aou_nbs/Setting_Env_Variables_p2.R
 aou_nbs/Setting_Env_Variables_p2.py
 aou_nbs/06.1_how_to_run_books_in_the_background.ipynb
 .cursor/
+osc/figs/ccre_drawings/
+gene_info/Homo_sapiens.GRCh38.regulatory_features.v116.gff3
+gene_info/Homo_sapiens.GRCh38.regulatory_features.v116.gff3.db
+gene_info/Homo_sapiens.GRCh38.regulatory_features.v116.gff3.gz
+gene_info/Homo_sapiens.GRCh38.regulatory_features.v116.sorted.gff3.gz
+gene_info/Homo_sapiens.GRCh38.regulatory_features.v116.sorted.gff3.gz.tbi

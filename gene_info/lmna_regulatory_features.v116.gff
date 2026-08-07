@@ -1,0 +1,4 @@
+1	Ensembl	promoter	156082455	156082588	.	.	.	ID=ENSR1_86KWDJ;extended_start=156082455;extended_end=156082588;gene_id=ENSG00000254726,ENSG00000160789;gene_name=MEX3A,LMNA;gene_biotype=protein_coding,protein_coding;color=#ff0000
+1	Ensembl	promoter	156106208	156106708	.	.	.	ID=ENSR1_949XXN;extended_start=156105208;extended_end=156106708;gene_id=ENSG00000160789;gene_name=LMNA;gene_biotype=protein_coding;color=#ff0000
+1	Ensembl	promoter	156113761	156114732	.	.	.	ID=ENSR1_B35ZHZ;extended_start=156113316;extended_end=156114732;gene_id=ENSG00000160789;gene_name=LMNA;gene_biotype=protein_coding;color=#ff0000
+1	Ensembl	promoter	156125670	156126565	.	.	.	ID=ENSR1_B35ZKN;extended_start=156124670;extended_end=156126565;gene_id=ENSG00000160789;gene_name=LMNA;gene_biotype=protein_coding;color=#ff0000
