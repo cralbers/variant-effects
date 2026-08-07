@@ -39,21 +39,11 @@ HG38_FASTA_PATH = '/users/PAS2905/coraalbers/ag/hg38.fa'
 HG38_GTF_PATH = '/users/PAS2905/coraalbers/ag/ag_data/gencode.v46.annotation.gtf.gz.feather'
 HG38_SPLICE_START_PATH = '/users/PAS2905/coraalbers/ag/ag_data/gencode.v46.splice_sites_starts.feather'
 HG38_SPLICE_END_PATH = '/users/PAS2905/coraalbers/ag/ag_data/gencode.v46.splice_sites_ends.feather'
+CALIBRATION_PATH = f'{AG_DATA_PATH}calibration_scores.pb'
 
 HEART_UB = 'UBERON:0000948'
 LV_UB = 'UBERON:0002084'
 GENE = 'LMNA'
-
-# # Flags to improve determinism.
-# os.environ['XLA_FLAGS'] = ' '.join([
-#     '--xla_gpu_deterministic_ops',
-#     '--xla_gpu_enable_scatter_determinism_expander=True',
-#     '--xla_gpu_enable_triton_gemm=False',
-# ])
-# # Increase GPU and CPU memory to reduce out of memory errors.
-# os.environ['XLA_PYTHON_CLIENT_MEM_FRACTION'] = '0.9'
-
-# gtf = pd.read_feather( 'https://storage.googleapis.com/alphagenome/reference/gencode/' 'hg38/gencode.v46.annotation.gtf.gz.feather' )
 
 output_modalities = ['atac',	
     'cage',	
@@ -82,16 +72,17 @@ requested_outputs = {dna_client.OutputType.ATAC,
 BED_FILE = sys.argv[1]
 OUTPUT_FOLDER = sys.argv[2]
 
-
-model = dna_model.create_from_huggingface( 
-    'all_folds', 
+model = dna_model.create_from_huggingface( 'all_folds',
     organism_settings={ 
         dna_model.Organism.HOMO_SAPIENS: dna_model.OrganismSettings( 
             fasta_path=HG38_FASTA_PATH, 
             gtf_feather_path=HG38_GTF_PATH, 
             splice_site_starts_feather_path=HG38_SPLICE_START_PATH, 
             splice_site_ends_feather_path=HG38_SPLICE_END_PATH, 
-        ), dna_model.Organism.MUS_MUSCULUS: dna_model.OrganismSettings() } )
+            calibration_path=CALIBRATION_PATH,
+        ), dna_model.Organism.MUS_MUSCULUS: dna_model.OrganismSettings() } 
+)
+
 
 print('all_folds model initialized!')
 
