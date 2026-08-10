@@ -18,6 +18,7 @@ osc/outputs
 osc/logs
 osc/lmna_ism_out
 osc/agat_log_gencode.v46.annotation
+osc/.env
 
 aou_nbs/01.4_How_to_work_with_VAT_Hail.ipynb
 aou_nbs/Setting_Env_Variables_p2.R

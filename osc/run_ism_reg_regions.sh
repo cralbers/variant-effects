@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --account=pas2905
-#SBATCH --partition=nextgen
+#SBATCH --partition=quad
 #SBATCH --job-name=ism_reg_regions_post
 #SBATCH --time=40:00:00
 #SBATCH --mail-type=END,FAIL
