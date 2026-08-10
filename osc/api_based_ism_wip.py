@@ -10,22 +10,23 @@ import numpy as np
 from pathlib import Path
 from dotenv import load_dotenv
 
-load_dotenv(dotenv_path=".env")
+load_dotenv(dotenv_path=Path(__file__).parent / ".env")
 
-
-# %%
 
 GENE_STRAND = "+"
 GENE_NAME   = "LMNA"
 CHROM       = "chr1"
-ISM_START = 156_082_572    
-ISM_END   = 156_082_575
+# LMNA_INTERVAL = genome.Interval('chr1', 156_082_572, 156_140_081)
+# ism_total_interval = LMNA_INTERVAL.resize(1MB)
+# ism start and end -> start and end of 1 MB interval resized around center of LMNA gene
+ISM_START = 155_587_039    
+ISM_END   = 156_635_615
 CHUNK_BP        = 500   # bp per score_ism_variants() call
 SEQ_LENGTH      = 1_048_576 #model input/context window
 CALL_TIMEOUT_S  = 1000
 MAX_WORKERS     = 16    # parallelism on AG's end. internal score_ism_variants concurrency per call
-TISSUE_ONTOLOGY = "UBERON:0000948"  # heart
-SCORES_CSV = str(f"lmna_ism_test{ISM_START}_{ISM_END}_{SEQ_LENGTH}.csv")
+TISSUE_ONTOLOGY = "UBERON:0002084"  # LV
+SCORES_CSV = str(Path(__file__).parent / f"lmna_ism_{ISM_START}_{ISM_END}_{SEQ_LENGTH}.csv")
 # Dynamically picks up every non-empty AG_API_KEY_<N> env var present, in
 # numeric order -- add or remove keys in .env and the worker count follows,
 API_KEYS = [v for _, v in sorted(
@@ -35,101 +36,24 @@ API_KEYS = [v for _, v in sorted(
 ) if v]
 
 
-
-# %%
-def _build_scorers():
-    from alphagenome.models import dna_client, variant_scorers
-    
-    organism = 'human'
-    
-    # specify which scorers to use to score your variants:
-    score_rna_seq = True  # @param { type: "boolean"}
-    score_cage = True  # @param { type: "boolean" }
-    score_procap = True  # @param { type: "boolean" }
-    score_atac = True  # @param { type: "boolean" }
-    score_dnase = True  # @param { type: "boolean" }
-    score_chip_histone = True  # @param { type: "boolean" }
-    score_chip_tf = True  # @param { type: "boolean" }
-    score_polyadenylation = False  # @param { type: "boolean" }
-    score_splice_sites = True  # @param { type: "boolean" }
-    score_splice_site_usage = True  # @param { type: "boolean" }
-    score_splice_junctions = True  # @param { type: "boolean" }
-    
-    
-    
-    # parse organism specification.
-    organism_map = {
-        'human': dna_client.Organism.HOMO_SAPIENS,
-        'mouse': dna_client.Organism.MUS_MUSCULUS,
-    }
-    organism = organism_map[organism]
-    
-    # Parse scorer specification.
-    scorer_selections = {
-        'rna_seq': score_rna_seq,
-        'cage': score_cage,
-        'procap': score_procap,
-        'atac': score_atac,
-        'dnase': score_dnase,
-        'chip_histone': score_chip_histone,
-        'chip_tf': score_chip_tf,
-        'polyadenylation': score_polyadenylation,
-        'splice_sites': score_splice_sites,
-        'splice_site_usage': score_splice_site_usage,
-        'splice_junctions': score_splice_junctions,
-    }
-    all_scorers = variant_scorers.RECOMMENDED_VARIANT_SCORERS
-    # print(all_scorers)
-    selected_scorers = [
-        all_scorers[key]
-        for key in all_scorers
-        if scorer_selections.get(key.lower(), False)
-    ]
-    
-    
-    
-    # Remove any scorers or output types that are not supported for the chosen organism.
-    unsupported_scorers = [
-        scorer
-        for scorer in selected_scorers
-        if (
-            organism.value
-            not in variant_scorers.SUPPORTED_ORGANISMS[scorer.base_variant_scorer]
-        )
-        | (
-            (scorer.requested_output == dna_client.OutputType.PROCAP)
-            & (organism == dna_client.Organism.MUS_MUSCULUS)
-        )
-    ]
-    if len(unsupported_scorers) > 0:
-      print(
-          f'Excluding {unsupported_scorers} scorers as they are not supported for'
-          f' {organism}.'
-      )
-      for unsupported_scorer in unsupported_scorers:
-        selected_scorers.remove(unsupported_scorer)
-    
-    print(selected_scorers)
-    return selected_scorers
-
-
-_build_scorers()
-
 # %%
 #Note: To add a scorer/modality, _build_scorers() and extract_score() will need updating
 
 # RECOMMENDED columns are pulled straight from RECOMMENDED_VARIANT_SCORERS;
 # everything else is COMPLEMENT, even if it happens to match the recommended one.
+# AG client defines MAX_VARIANT_SCORERS_PER_REQUEST = 20
+# and recommended scorers = 19
+
 def _build_scorers():
     from alphagenome.models import dna_client, variant_scorers
 
     complement = {
-        "SPLICE_SITES": variant_scorers.CenterMaskScorer(
-            requested_output=dna_client.OutputType.SPLICE_SITES, width=501,
-            aggregation_type=variant_scorers.AggregationType.DIFF_SUM),
-        "SPLICE_SITE_USAGE": variant_scorers.CenterMaskScorer(
-            requested_output=dna_client.OutputType.SPLICE_SITE_USAGE, width=501,
-            aggregation_type=variant_scorers.AggregationType.DIFF_LOG2_SUM),
+        # "SPLICE_SITES": variant_scorers.CenterMaskScorer(
+        #     requested_output=dna_client.OutputType.SPLICE_SITES, width=501,
+        #     aggregation_type=variant_scorers.AggregationType.DIFF_SUM),
+        # "SPLICE_SITE_USAGE": variant_scorers.CenterMaskScorer(
+        #     requested_output=dna_client.OutputType.SPLICE_SITE_USAGE, width=501,
+        #     aggregation_type=variant_scorers.AggregationType.DIFF_LOG2_SUM),
     }
 
     scorers = []
@@ -138,8 +62,6 @@ def _build_scorers():
         if key in complement:
             scorers.append((f"{key}, COMPLEMENT", key, complement[key]))
     return scorers
-
-_build_scorers()
 
 
 # %%
@@ -204,7 +126,8 @@ def run_one_piece(api_key, chunk_start, chunk_end, out_queue):
     scorers = _build_scorers()
     model = dna_client.create(api_key)
     ism_interval = genome.Interval(CHROM, chunk_start, chunk_end)
-    seq_interval = ism_interval.resize(SEQ_LENGTH)
+    LMNA_INTERVAL = genome.Interval('chr1', 156_082_572, 156_140_081)
+    seq_interval = LMNA_INTERVAL.resize(SEQ_LENGTH)
 
     t0 = time.time()
     try:
@@ -215,6 +138,7 @@ def run_one_piece(api_key, chunk_start, chunk_end, out_queue):
             organism=dna_client.Organism.HOMO_SAPIENS,
             progress_bar=False,
             max_workers=MAX_WORKERS,
+            merge_stranded_gene_tracks=False,
         )
         partial = {}
         for variant_scores in result:
