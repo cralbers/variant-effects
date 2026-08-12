@@ -3,7 +3,7 @@
 #SBATCH --partition=nextgen
 #SBATCH --job-name=lmna_ism_1mb
 #SBATCH --mem=128gb
-#SBATCH --time=10:00:00
+#SBATCH --time=40:00:00
 #SBATCH --mail-type=END,FAIL
 #SBATCH --output=logs/R-%x.%j.out
 #SBATCH --error=logs/R-%x.%j.err
