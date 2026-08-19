@@ -17,7 +17,7 @@ ml miniconda3/24.1.2-py310 cuda/12.9.1
 # activate the alphagenome conda environment
 conda activate py311
 
-BED_FILE='data_sync/predicted_ccre_like_regions_central_LV_128res.bed'
+BED_FILE='data_sync/predicted_ccre_like_regions_gene_centered_interval_LV_128res_updated.bed'
 
 while IFS=$'\t' read -r chrom start end rest; do
     # Skip track/browser comments and column-header rows (e.g. chrom/start/end)
